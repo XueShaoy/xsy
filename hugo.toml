@@ -108,7 +108,7 @@ enableRobotsTXT = true
   # 日期格式
   dateFormat = "2006-01-02"
   # 网站图片，用于 SEO 和 Open Graph
-  images = ["/images/avatar.svg"]
+  images = ["images/avatar.svg"]
 
   # 页面头部导航栏
   [params.header]
@@ -139,7 +139,7 @@ enableRobotsTXT = true
     [params.home.profile]
       enable = true
       gravatarEmail = ""
-      avatarURL = "/images/avatar.svg"
+      avatarURL = "images/avatar.svg"
       title = "Shaoyang"
       subtitle = "Hi，欢迎来到我的个人主页！这里记录我的技术笔记、项目与思考。"
       typeit = true
