@@ -123,7 +123,7 @@ enableRobotsTXT = true
   [params.footer]
     enable = true
     custom = ""
-    hugo = true
+    hugo = false
     copyright = true
     author = true
     since = 2026
@@ -175,6 +175,7 @@ enableRobotsTXT = true
       Weibo = true
     [params.page.library.css]
       homeSocialSpacing = "css/home-social-spacing.css"
+      siteFooter = "css/site-footer.css"
 
   # 搜索配置 (Lunr.js)
   [params.search]

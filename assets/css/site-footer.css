@@ -1,0 +1,9 @@
+/* 页脚：取消主题固定高度，增加下边距，避免版权行贴底 */
+footer {
+  height: auto;
+  padding: 1rem 0 2.5rem;
+}
+
+footer .footer-container {
+  padding-bottom: 0.25rem;
+}
