@@ -12,12 +12,6 @@ theme = "LoveIt"
 # 是否使用 git 提交信息显示 "最后修改时间"
 enableGitInfo = false
 
-# 是否包括中日韩文字
-[author]
-  name = "XueShaoyang"
-  email = ""
-  link = "https://github.com/XueShaoy"
-
 # 网站默认时区
 timeZone = "Asia/Shanghai"
 
@@ -99,6 +93,10 @@ enableRobotsTXT = true
 [params]
   # 主题版本
   version = "0.3.X"
+  [params.author]
+    name = "XueShaoyang"
+    email = ""
+    link = "https://github.com/XueShaoy"
   description = "Shaoyang 的个人主页与技术博客"
   keywords = ["博客", "个人主页", "技术"]
   # 默认主题外观 (auto, light, dark)
@@ -108,7 +106,7 @@ enableRobotsTXT = true
   # 日期格式
   dateFormat = "2006-01-02"
   # 网站图片，用于 SEO 和 Open Graph
-  images = ["/images/avatar.svg"]
+  images = ["/images/avatar.jpg"]
 
   # 页面头部导航栏
   [params.header]
@@ -139,7 +137,7 @@ enableRobotsTXT = true
     [params.home.profile]
       enable = true
       gravatarEmail = ""
-      avatarURL = "/images/avatar.svg"
+      avatarURL = "/images/avatar.jpg"
       title = "Shaoyang"
       subtitle = "Hi，欢迎来到我的个人主页！这里记录我的技术笔记、项目与思考。"
       typeit = true

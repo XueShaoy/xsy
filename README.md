@@ -69,5 +69,5 @@ math: true
 
 ## 自定义
 
-- 头像：替换 `static/images/avatar.svg`（或改为自己的 `avatar.png` 并更新 `hugo.toml`）
+- 头像：替换 `static/images/avatar.jpg`（建议 512×512 左右；源图可放 `static/images/` 后自行缩放）
 - 站点信息 / 菜单 / 社交链接：编辑 `hugo.toml`
