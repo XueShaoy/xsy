@@ -175,6 +175,8 @@ enableRobotsTXT = true
       Twitter = true
       Linkedin = true
       Weibo = true
+    [params.page.library.css]
+      homeSocialSpacing = "css/home-social-spacing.css"
 
   # 搜索配置 (Lunr.js)
   [params.search]
@@ -192,6 +194,13 @@ enableRobotsTXT = true
     GitHub = "XueShaoy"
     Email = ""
     RSS = true
+    [params.social.Bilibili]
+      weight = 2
+      url = "https://space.bilibili.com/12646930"
+      title = "哔哩哔哩"
+    [params.social.Xiaohongshu]
+      weight = 3
+      url = "https://xhslink.com/m/7hIdSabWJgy"
 
 # ===================== 输出格式 (搜索需要 JSON) =====================
 [outputs]
