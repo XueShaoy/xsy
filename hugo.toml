@@ -1,0 +1,200 @@
+# ===================== 基础配置 =====================
+baseURL = "https://xueshaoy.github.io/xsy/"
+# 默认语言：中文
+defaultContentLanguage = "zh-cn"
+locale = "zh-CN"
+hasCJKLanguage = true
+title = "Shaoyang 的个人主页"
+
+# 主题
+theme = "LoveIt"
+
+# 是否使用 git 提交信息显示 "最后修改时间"
+enableGitInfo = false
+
+# 是否包括中日韩文字
+[author]
+  name = "Shaoyang"
+  email = ""
+  link = "https://github.com/XueShaoy"
+
+# 网站默认时区
+timeZone = "Asia/Shanghai"
+
+# 自动生成 robots.txt
+enableRobotsTXT = true
+
+# 分页：每页文章数（Hugo 0.128+ 新写法）
+[pagination]
+  pagerSize = 12
+
+# ===================== 菜单 =====================
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "文章"
+    url = "/posts/"
+    title = ""
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "标签"
+    url = "/tags/"
+    title = ""
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "分类"
+    url = "/categories/"
+    title = ""
+    weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "关于"
+    url = "/about/"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = "github"
+    pre = "<i class='fab fa-github fa-fw'></i>"
+    post = ""
+    name = ""
+    url = "https://github.com/XueShaoy"
+    title = "GitHub"
+    weight = 5
+
+# ===================== Markdown 渲染 =====================
+[markup]
+  # 代码高亮
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  # 目录
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+  # 允许在 Markdown 中使用 HTML
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# ===================== 主题参数 =====================
+[params]
+  # 主题版本
+  version = "0.3.X"
+  description = "Shaoyang 的个人主页与技术博客"
+  keywords = ["博客", "个人主页", "技术"]
+  # 默认主题外观 (auto, light, dark)
+  defaultTheme = "auto"
+  # 公共 CDN 设置
+  gitRepo = "https://github.com/XueShaoy/xsy"
+  # 日期格式
+  dateFormat = "2006-01-02"
+  # 网站图片，用于 SEO 和 Open Graph
+  images = ["/images/avatar.svg"]
+
+  # 页面头部导航栏
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = ""
+      name = "Shaoyang"
+      pre = "<i class='fas fa-home'></i> "
+      post = ""
+      typeit = false
+
+  # 页面底部信息
+  [params.footer]
+    enable = true
+    custom = ""
+    hugo = true
+    copyright = true
+    author = true
+    since = 2026
+    icp = ""
+    license = '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+  # 主页配置
+  [params.home]
+    rss = 10
+    # 主页个人信息
+    [params.home.profile]
+      enable = true
+      gravatarEmail = ""
+      avatarURL = "/images/avatar.svg"
+      title = "Shaoyang"
+      subtitle = "Hi，欢迎来到我的个人主页！这里记录我的技术笔记、项目与思考。"
+      typeit = true
+      social = true
+      disclaimer = ""
+    # 主页文章列表
+    [params.home.posts]
+      enable = true
+      paginate = 6
+
+  # 文章页面全局配置
+  [params.page]
+    hiddenFromHomePage = false
+    hiddenFromSearch = false
+    twemoji = false
+    lightgallery = true
+    ruby = true
+    fraction = true
+    fontawesome = true
+    linkToMarkdown = true
+    rssFullText = false
+    [params.page.toc]
+      enable = true
+      keepStatic = false
+      auto = true
+    [params.page.code]
+      copy = true
+      maxShownLines = 50
+    [params.page.math]
+      enable = true
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Linkedin = true
+      Weibo = true
+
+  # 搜索配置 (Lunr.js)
+  [params.search]
+    enable = true
+    type = "lunr"
+    contentLength = 4000
+    placeholder = ""
+    maxResultLength = 10
+    snippetLength = 30
+    highlightTag = "em"
+    absoluteURL = false
+
+  # 社交信息
+  [params.social]
+    GitHub = "XueShaoy"
+    Email = ""
+    RSS = true
+
+# ===================== 输出格式 (搜索需要 JSON) =====================
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
+# ===================== 分类法 =====================
+[taxonomies]
+  category = "categories"
+  tag = "tags"
