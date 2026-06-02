@@ -1,3 +1,12 @@
+/* 首页头像：大于主题默认 8rem / 6rem（见 themes/LoveIt/assets/css/_page/_home.scss） */
+.home .home-profile .home-avatar img {
+  width: 11rem;
+}
+
+.home[data-home="posts"] .home-profile .home-avatar img {
+  width: 9rem;
+}
+
 .home .home-profile .links a {
   margin: 0 0.2rem;
 }
