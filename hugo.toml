@@ -14,7 +14,7 @@ enableGitInfo = false
 
 # 是否包括中日韩文字
 [author]
-  name = "Shaoyang"
+  name = "XueShaoyang"
   email = ""
   link = "https://github.com/XueShaoy"
 
