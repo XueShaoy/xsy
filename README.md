@@ -32,6 +32,22 @@ hugo new posts/我的文章/index.md
 
 文章默认 `draft: true`，发布前改为 `draft: false`。
 
+### 数学公式
+
+LoveIt 按需加载 KaTeX，**含公式的文章必须在 front matter 中加 `math: true`**，否则公式不渲染：
+
+```yaml
+---
+title: "我的文章"
+math: true
+---
+```
+
+- 行内公式：`\( ... \)`
+- 块级公式：`\[ ... \]` 或 `$$ ... $$`
+
+> 单个 `$` 未设为行内分隔符，正文中写 `$5` 等不会被误当公式。
+
 ## 目录结构
 
 ```

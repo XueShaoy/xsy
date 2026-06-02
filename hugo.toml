@@ -88,6 +88,12 @@ enableRobotsTXT = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    # 透传数学公式分隔符，避免 \( \) \[ \] 被 Markdown 转义，交给 KaTeX 渲染
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)']]
 
 # ===================== 主题参数 =====================
 [params]

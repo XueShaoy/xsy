@@ -8,6 +8,7 @@ description: "使用 Hugo + LoveIt 主题搭建个人主页的第一篇记录。
 tags: ["Hugo", "博客", "GitHub Pages"]
 categories: ["建站"]
 featuredImage: ""
+math: true
 ---
 
 这是我使用 [Hugo](https://gohugo.io/) 和 [LoveIt](https://github.com/dillonzq/LoveIt) 主题搭建的个人主页的第一篇文章 🎉。
