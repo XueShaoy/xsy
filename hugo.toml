@@ -1,5 +1,5 @@
 # ===================== 基础配置 =====================
-baseURL = "https://xueshaoyang.com/"
+baseURL = "https://xueshaoyang.cn/"
 # 默认语言：中文
 defaultContentLanguage = "zh-cn"
 locale = "zh-CN"
