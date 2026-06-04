@@ -42,8 +42,12 @@ jobs:
         run: hugo --gc --minify --baseURL "${HUGO_BASE_URL}"
 
       - name: Install ossutil
+        env:
+          OSSUTIL_VERSION: 2.3.0
         run: |
-          curl -fsSL https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+          curl -fsSL -o ossutil.zip "https://gosspublic.alicdn.com/ossutil/v2/${OSSUTIL_VERSION}/ossutil-${OSSUTIL_VERSION}-linux-amd64.zip"
+          unzip -q ossutil.zip
+          sudo install -m 755 "ossutil-${OSSUTIL_VERSION}-linux-amd64/ossutil" /usr/local/bin/ossutil
           ossutil version
 
       - name: Deploy to OSS
