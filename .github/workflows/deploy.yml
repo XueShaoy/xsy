@@ -53,14 +53,30 @@ jobs:
       - name: Deploy to OSS
         env:
           OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT }}
+          OSS_REGION_SECRET: ${{ secrets.OSS_REGION }}
           OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
           OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
         run: |
-          OSS_REGION="$(echo "${OSS_ENDPOINT}" | sed -E 's#^https?://##; s/^oss-//; s/\.aliyuncs\.com$//')"
-          echo "Derived region: ${OSS_REGION}"
+          # 优先使用 OSS_REGION（如 cn-beijing）；否则从 OSS_ENDPOINT 推导
+          if [ -n "${OSS_REGION_SECRET}" ]; then
+            OSS_REGION="${OSS_REGION_SECRET}"
+          else
+            OSS_REGION="$(echo "${OSS_ENDPOINT}" | sed -E 's#^https?://##; s/^oss-//; s/\.aliyuncs\.com$//')"
+          fi
+
+          # region 必须形如 cn-beijing，否则说明 endpoint/region 配置有误
+          if ! echo "${OSS_REGION}" | grep -Eq '^[a-z]+-[a-z0-9-]+$'; then
+            echo "::error::无法得到合法 region（当前: '${OSS_REGION}'）。请把 OSS_ENDPOINT 设为 oss-cn-beijing.aliyuncs.com，或新增 OSS_REGION=cn-beijing。"
+            exit 1
+          fi
+
+          # 始终使用标准公网 endpoint，避免误配成账号专属域名
+          CLEAN_ENDPOINT="oss-${OSS_REGION}.aliyuncs.com"
+          echo "Using region: ${OSS_REGION} / endpoint: ${CLEAN_ENDPOINT}"
+
           ossutil sync ./public/ "oss://${OSS_BUCKET}/" -f --delete \
-            -e "${OSS_ENDPOINT}" \
+            -e "${CLEAN_ENDPOINT}" \
             -i "${OSS_ACCESS_KEY_ID}" \
             -k "${OSS_ACCESS_KEY_SECRET}" \
             --region "${OSS_REGION}"
