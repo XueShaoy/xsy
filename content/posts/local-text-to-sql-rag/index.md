@@ -90,8 +90,8 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph user [用户]
-        U1[分析师：查口径 / 复制 SQL]
-        U2[Agent 对话：问答 / 生成查询]
+        U1["分析师：查口径 / 复制 SQL"]
+        U2["Agent 对话：问答 / 生成查询"]
     end
 
     subgraph layers [知识仓库]
@@ -266,7 +266,7 @@ flowchart TD
     ParallelSearch["并行两路检索"]
 
     ParallelSearch --> BM25Path["BM25 路径<br/>search_text 分词匹配"]
-    ParallelSearch --> VecPath{"has_vectors?"}
+    ParallelSearch --> VecPath["has_vectors?"]
 
     VecPath -->|是| EmbedQuery["query 向量化<br/>bge-small-zh-v1.5"]
     EmbedQuery --> FaissSearch["FAISS 相似度 Top-K"]
@@ -599,17 +599,17 @@ LLM 上下文有限，读得越多越容易「自由发挥」。按问题类型�
 
 ```mermaid
 flowchart TB
-    G[glossary.yaml<br/>术语唯一来源]
-    C[catalog/*.yaml<br/>指标索引唯一来源]
-    H[SQL 头部<br/>口径消费契约]
-    T[tables/*.yaml<br/>物理 schema]
-    S[SQL 正文<br/>可执行逻辑]
+    G["glossary.yaml<br/>术语唯一来源"]
+    C["catalog/*.yaml<br/>指标索引唯一来源"]
+    H["SQL 头部<br/>口径消费契约"]
+    T["tables/*.yaml<br/>物理 schema"]
+    S["SQL 正文<br/>可执行逻辑"]
 
     G --> C
     C --> H
     H --> S
     H --> T
-    T -.->|冲突时以 H 为准| H
+    T -.->|"冲突时以 H 为准"| H
 ```
 
 | 问题 | 权威来源 |

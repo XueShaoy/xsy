@@ -127,39 +127,56 @@ enableRobotsTXT = true
     # 从 CDN 加载并按主题相同方式渲染；主题正常工作时自动不介入，零冲突。
     custom = '''<script>
 (function () {
+  function markDone(el) {
+    el.classList.remove('mermaid');
+    el.classList.add('mermaid-rendered');
+  }
   function pending() {
     return Array.prototype.filter.call(
       document.getElementsByClassName('mermaid'),
       function (el) { return !el.querySelector('svg'); }
     );
   }
+  function markAlreadyRendered() {
+    Array.prototype.forEach.call(document.getElementsByClassName('mermaid'), function (el) {
+      if (el.querySelector('svg')) markDone(el);
+    });
+  }
+  function ensureMermaid(cb) {
+    if (window.mermaid) return cb();
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
   function renderAll() {
     if (!window.mermaid) return;
     var isDark = document.body.getAttribute('theme') === 'dark';
     try {
-      window.mermaid.initialize({ startOnLoad: false, theme: isDark ? 'dark' : 'neutral', securityLevel: 'loose' });
+      window.mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? 'dark' : 'neutral',
+        securityLevel: 'loose',
+        suppressErrorRendering: true
+      });
     } catch (e) {}
     pending().forEach(function (el) {
       var def = (el.textContent || '').trim();
-      if (!def) return;
-      var id = 'mermaid-fallback-' + (el.id || Math.random().toString(36).slice(2));
+      if (!def || (def.indexOf('flowchart') === -1 && def.indexOf('graph') === -1)) return;
+      var id = 'mmd-' + (el.id || Math.random().toString(36).slice(2));
       window.mermaid.render(id, def)
-        .then(function (r) { el.innerHTML = r.svg; })
-        .catch(function (err) { console.error(err); });
+        .then(function (r) { el.innerHTML = r.svg; markDone(el); })
+        .catch(function () { markDone(el); });
     });
   }
   function boot() {
-    setTimeout(function () {
-      if (window.mermaid) return;        // 主题已加载 mermaid，交给主题渲染
-      if (!pending().length) return;     // 本页没有待渲染的流程图
-      var s = document.createElement('script');
-      s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11.5.0/dist/mermaid.min.js';
-      s.onload = renderAll;
-      document.head.appendChild(s);
-    }, 500);
+    ensureMermaid(function () {
+      markAlreadyRendered();
+      renderAll();
+      setTimeout(markAlreadyRendered, 300);
+    });
   }
-  if (document.readyState !== 'loading') boot();
-  else document.addEventListener('DOMContentLoaded', boot);
+  window.addEventListener('load', boot);
 })();
 </script>'''
     hugo = false
