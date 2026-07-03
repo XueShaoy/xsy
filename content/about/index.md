@@ -17,6 +17,6 @@ description: "关于 Shaoyang"
 
 ## 联系我
 
-- GitHub: [XueShaoy](https://github.com/XueShaoy)
-
-> 本站使用 [Hugo](https://gohugo.io/) 与 [LoveIt](https://github.com/dillonzq/LoveIt) 主题构建，并通过 GitHub Pages 部署。
+- 小红书 https://xhslink.com/m/VHHrw0M5Mm
+- Instagram https://www.instagram.com/shaoy_xue/
+- Bilibili https://space.bilibili.com/12646930

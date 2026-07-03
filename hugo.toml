@@ -256,6 +256,9 @@ enableRobotsTXT = true
     [params.social.Xiaohongshu]
       weight = 3
       url = "https://xhslink.com/m/7hIdSabWJgy"
+    [params.social.Instagram]
+      weight = 4
+      id = "shaoy_xue"
 
 # ===================== 输出格式 (搜索需要 JSON) =====================
 [outputs]
