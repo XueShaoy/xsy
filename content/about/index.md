@@ -17,6 +17,6 @@ description: "关于 Shaoyang"
 
 ## 联系我
 
-- 小红书 https://xhslink.com/m/VHHrw0M5Mm
-- Instagram https://www.instagram.com/shaoy_xue/
-- Bilibili https://space.bilibili.com/12646930
+- [小红书](https://xhslink.com/m/VHHrw0M5Mm)
+- [Instagram](https://www.instagram.com/shaoy_xue/)
+- [Bilibili](https://space.bilibili.com/12646930)
